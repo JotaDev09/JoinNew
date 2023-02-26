@@ -1,0 +1,174 @@
+.d-none {
+    display: none;
+}
+
+.margin {
+    margin-left: 57px;
+}
+
+.help_info {
+    height: 935px;
+    padding-top: 89px;
+    padding-left: 232px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-style: normal;
+    color: #000000;
+}
+
+.help_title {
+    padding-top: 104px;
+    padding-left: 123px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont_arrow {
+    padding-bottom: 23px;
+    padding-right: 128.17px;
+}
+
+.cont_arrow_resp {
+    display: none;
+}
+
+.arrow{
+    cursor: pointer;
+}
+
+.help_title span {
+    width: 371px;
+    height: 73px;
+    font-weight: 700;
+    font-size: 61px;
+}
+
+.sub_help1 {
+    padding-top: 48px;
+    padding-left: 115px;
+    padding-right: 124px;
+}
+
+.sub_help1 span {
+    height: 32px;
+    font-weight: 700;
+    font-size: 27px;
+}
+
+.sub_help1 a {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.sub_help2 {
+    padding-top: 20px;
+    padding-left: 115px;
+    padding-right: 124px;
+}
+
+.sub_help2 span {
+    height: 32px;
+    font-weight: 700;
+    font-size: 27px;
+    padding-bottom: 35px;
+}
+
+.help_rules {
+    display: flex;
+}
+
+.padding {
+    padding-top: 20px;
+}
+
+.help_rules a {
+    width: 21px;
+    height: 32px;
+    font-weight: 700;
+    font-size: 27px;
+    padding-right: 35px;
+    padding-top: 13px;
+}
+
+.help_rules p {
+    font-family: 'poppins';
+    font-weight: 400;
+    font-size: 16px;
+}
+
+@media (max-width: 950px) {
+
+    .help_info {
+        padding-top: 0;
+    }
+    .cont_arrow {
+        display: none;
+    }
+
+    .cont_arrow_resp {
+        position: absolute;
+        width: 24.67px;
+        height: 23.98px;
+        display: flex;
+        right: 35.17px;
+        top: 144.49px
+    }
+
+    .help_title {
+        padding-top: 19px;
+        padding-left: 33px;
+    }
+
+    .sub_help1 {
+        padding-left: 33px;
+        padding-right: 32px;
+        padding-top: 35px;
+    }
+
+    .sub_help2 {
+        padding-left: 35px;
+        padding-right: 32px;
+        padding-top: 35px;
+    }
+
+    .title_resp {
+        padding-top: 114px;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .subtitle {
+        padding-bottom: 100px;
+    }
+}
+
+@media (max-width: 750px) {
+    .help_info {
+        padding-left: 0;
+    }
+
+    
+
+    .sub_help2 {
+        padding-top: 0;
+    }
+
+    .sub_help2 span{
+        display: none;
+    }
+
+    .padding {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .help_title span{
+        height: 56px;
+        font-size: 47px;
+    }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/fonts/fonts.css" />
+
+
+    <link rel="stylesheet" href="/assets/css/summary.css" />
+    <link rel="stylesheet" href="/assets/css/summary-resp.css" />
+    <link rel="stylesheet" href="/assets/css/board_maj.css" />
+    <link rel="stylesheet" href="/assets/css/board_resp.css" />
+    <link rel="stylesheet" href="/assets/css/add_task.css" />
+    <link rel="icon" type="image/icon" href="./assets/img/join-logo.svg" />
+
+    <script src="../../assets/js/add_task.js"></script>
+    <script src="../../assets/js/add_task_dropdown.js"></script>
+    <script src="../../assets/js/add_task_overview.js"></script>
+    <script src="../../assets/js/add_task_dynamic_html.js"></script>
+    <script src="../../assets/js/summary.js"></script>
+    <script src="../../assets/js/mini_backend.js"></script>
+    <script src="./assets/js/board.js" defer></script>
+    <script src="./assets/js/board_overview.js"></script>
+    <script src="./assets/js/board_editMode.js"></script>
+    <script src="/assets/js/board_AddTask_PopUp.js"></script>
+    <script src="./assets/js/board_dynamic.js"></script>
+
+    <script src="./assets/js/summary.js"></script>
+    <!-- <script src="./assets/js/add_task_popup.js"></script> -->
+    <script src="/assets/js/mini_backend.js"></script>
+
+    <script>
+        setURL('https://juan-desantos.developerakademie.net/smallest_backend_ever');
+    </script>
+
+    <title>Board</title>
+</head>
+
+<body onload="loadTasks()">
+
+    <!-- PopUp Detailed View -->
+    <div id="taskDetail" class="pop-up d-none" onclick="closePopUp()"></div>
+    <div class="window d-none" id="taskDetails"></div>
+    <!-- PopUp end -->
+    <div class="webpage" id="webpage">
+
+        <div class="background-grey d-none" id="BGActive" onclick="user()">
+        </div>
+        <section class="left">
+            <div class="logo">
+                <img src="assets/img/join-logo2.svg" />
+            </div>
+
+            <div class="menu_left">
+                <div class="menu" id="summary" onclick="summary()">
+                    <img class="logo_summary" src="assets/img/summary.svg" />
+                    <a>Summary</a>
+                </div>
+                <div class="menu menu_dark" id="board" onclick="board()">
+                    <img class="logo_board" src="assets/img/board.svg" />
+                    <a>Board</a>
+                </div>
+                <div class="menu" id="addTask" onclick="addTask()">
+                    <img class="logo_task" src="assets/img/add_task.svg" />
+                    <a>Add Task</a>
+                </div>
+                <div class="menu" id="contacts" onclick="contacts()">
+                    <img class="logo_contacts" src="assets/img/contacts.svg" />
+                    <a>Contacts</a>
+                </div>
+            </div>
+
+            <div class="impressum">
+                <div class="legal" id="legal" onclick="legal()">
+                    <img src="assets/img/info.svg" />
+                    <a>Legal notice</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="bottom_resp">
+            <div class="menu_resp" id="summary_resp" onclick="summary()">
+                <img class="logo_summary" src="assets/img/summary.svg" />
+                <a>Summary</a>
+            </div>
+            <div class="menu_resp menu_dark_resp" id="board_resp" onclick="board()">
+                <img class="logo_board" src="assets/img/board.svg" />
+                <a>Board</a>
+            </div>
+            <div class="menu_resp" id="addTask_resp" onclick="addTask()">
+                <img class="logo_task" src="assets/img/add_task.svg" />
+                <a>Add Task</a>
+            </div>
+            <div class="menu_resp" id="contacts_resp" onclick="contacts()">
+                <img class="logo_contacts" src="assets/img/contacts.svg" />
+                <a>Contacts</a>
+            </div>
+        </div>
+
+        <div class="right">
+
+            <div class="header">
+                <div class="logo_join_resp">
+                    <img src="assets/img/join-logo.svg" />
+                </div>
+                <div class="title-summary">
+                    <a class="kanban">Kanban Project Management Tool</a>
+                </div>
+                <div class="user">
+                    <img class="help" id="help" src="assets/img/help.svg" onclick="help()" />
+                    <div class="cont_foto">
+                        <span class="border_white">
+                            <img class="foto" onclick="user()" src="assets/img/icon_guest.png" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="log_out" class="cont_log_out">
+                <span class="log_out" id="help" onclick="help()">
+                    <a>Help</a>
+                </span>
+                <span class="log_out" id="legal" onclick="legal()">
+                    <a>Legal notice</a>
+                </span>
+                <div class="log_out" id="log_out" onclick="logOut()">
+                    <a>Log out</a>
+                </div>
+            </div>
+            <div class="title-summary-task title-summary-kanban">
+                <a class="kanban-task kanban-board">Kanban Project Management Tool</a>
+            </div>
+            <div class="content" id="content">
+
+                <div class="headline">
+                    <h1 class="font-headline">Board</h1>
+                    <button class="addTask_btn_resp" onclick="showAddTaskForm()">
+                        <img src="assets/img/addtaskresp.svg" />
+                    </button>
+                    <div class="findAndAddTask">
+                        <div class="findTask">
+                            <input placeholder="Find Task" class="findTaskInput" id="searched_input"
+                                onkeyup="findTask()" />
+                            <img src="./assets/img/magnifier.svg" alt="" />
+                        </div>
+                        <button class="addTask_btn" onclick="showAddTaskForm('todo')">
+                            add task +
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="kanban_board" id="kanban">
+                    <div class="column" id="todo">
+                        <div class="column_header">
+                            <h4 class="heading">Todo</h4>
+                            <img src="assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()"></img>
+                        </div>
+                    </div>
+                    <div class="column" id="inProgress">
+                        <div class="column_header">
+                            <h4 class="heading">In progress</h4>
+                            <img src="/assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
+                        </div>
+                    </div>
+                    <div class="column" id="awaitFeedback">
+                        <div class="column_header">
+                            <h4 class="heading heading_await">
+                                Awaiting feedback
+                            </h4>
+                            <img src="/assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
+                        </div>
+                    </div>
+                    <div class="column" id="done">
+                        <div class="column_header">
+                            <h4 class="heading">Done</h4>
+                            <img src="/assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="add_task_overlap_window d-none" id="addTask_overlap" onclick="closeWindow()"></div>
+
+
+    <div class="add-task-new d-none" id="bigPopUp">
+        <div class="theHeadline size ">
+            <h1>Add Task</h1>
+        </div>
+        <div onsubmit="addTask()" class="input-container">
+            <div class="left-container">
+                <form>
+                    <h4 class="size light title">Title</h4>
+                    <input id="title" class="title-input size light" type="text" placeholder="Enter a title" required />
+                </form>
+                <form>
+                    <h4 class="size light title">Description</h4>
+                    <textarea class="size light description-area" name="description" id="description"
+                        placeholder="Enter a Description" required></textarea>
+                </form>
+                <div>
+                    <h4 class="size light title">Category</h4>
+                    <div onclick="expandMenu(this.id)" id="category" class="size light cat-btn btn" type="button">
+                        Select task Category
+                        <img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg" />
+                    </div>
+                    <ul id="category-list" class="d-none list-height list size light category-list"></ul>
+                    <div id="new-category" class="left-width d-none">
+                        <input id="categoryName" class="title-input size light" type="text"
+                            placeholder="New category name" required="" />
+                        <img onclick="deleteCat()" class="cross" src="../../assets/img/cross.svg" /><img id="addCat"
+                            onclick="addCat()" class="newCategory" src="../../assets/img/newCategory.svg" />
+                        <div id="colorCode" class="colorCode"></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="size light title">Assigned to</h4>
+                    <button onclick="expandMenu(this.id)" id="assigne" class="size light category-btn btn">
+                        Select contacts to assign
+                        <img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg" />
+                    </button>
+                    <ul id="assigne-list" class="d-none list-height list size light category-list"></ul>
+                    <div id="new-assigne" class="left-width d-none">
+                        <input id="assigneName" class="title-input size light" type="text" placeholder="Contact email"
+                            required="" />
+                        <img onclick="miniMenu('assigne')" class="cross" src="../../assets/img/cross.svg" /><img
+                            id="addCat" onclick="miniMenu('assigne')" class="newCategory"
+                            src="../../assets/img/newCategory.svg" />
+                    </div>
+                    <div class="avatar" id="avatar"></div>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="resp-container">
+                    <form>
+                        <h4 class="size light title">Due date</h4>
+                        <input class="size light title-input" type="date" name="" id="dueDate" placeholder="dd/mm/yyyy"
+                            required min="" onclick="dateChecker()" />
+                    </form>
+                    <div class="resp-prio">
+                        <h4 class="size light title">Prio</h4>
+                        <div class="prio-btns">
+                            <button onclick="switchBackground('urgent')" class="size light btn prio" id="urgent">
+                                Urgent
+                                <img src="../../assets/img/arrows-up.svg" class="" />
+                            </button>
+                            <button onclick="switchBackground('medium')" class="size light btn prio" id="medium">
+                                Medium
+                                <img src="../../assets/img/equal-sign.svg" class="" />
+                            </button>
+                            <button onclick="switchBackground('low')" class="size light btn prio prio-low prio-img"
+                                id="low">
+                                Low
+                                <img src="../../assets/img/arrows-down.svg" class="" />
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="btn-box" id="id-contacts--addContact__rightBox--unten">
+                    <div id="cancel" class="size regul window-btn transp" style="display: flex;"
+                        onmouseover="hoverCancel()">
+                        <button class="size transp" style="border: none" type="submit" onclick="removeTasks()">
+                            Cancel
+                            <img id="cancelCross" class="padding-10" src="../../assets/img/close2.svg" />
+                        </button>
+                    </div>
+                    <button class="size regul window-btn ok-btn" type="submit" onclick="addingTask()">
+                        Add Task<img class="padding-10" src="../../assets/img/create.png" />
+                    </button>
+                    <div id="userFeedback" class="size userFeedback d-none">
+                        <p>Task added to board</p>
+                        <img src="../../assets/img/board.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
