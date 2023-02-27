@@ -6,8 +6,11 @@ let users = [
     }
 ];
 
+/**
+ * create a user
+ */
 async function signUp() {
-    
+
     let name = document.getElementById('name').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
@@ -17,27 +20,38 @@ async function signUp() {
         userAlreadyExists();
     } else {
         users.push({ 'name': name, 'email': email.toLowerCase(), 'password': password });
-         pushUsersToServer();
-         
+        pushUsersToServer();
+
         setTimeout(() => {
             showLoginAfterSignup();
         }, 500);
     }
 }
 
- function pushUsersToServer() {
-     backend.setItem('users', JSON.stringify(users));
+/**
+ * save the user to server
+ */
+function pushUsersToServer() {
+    backend.setItem('users', JSON.stringify(users));
 }
 
+/**
+ * show window login after sign up
+ */
 function showLoginAfterSignup() {
     window.location.href = 'index.html';
 }
 
+/**
+ * alert user exists
+ */
 function userAlreadyExists() {
     alert('already exist');
 }
 
-
+/**
+ * Mshow login window
+ */
 function backToLogin() {
     window.location.href = 'index.html';
 }

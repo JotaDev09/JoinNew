@@ -1,12 +1,21 @@
+/**
+ * init server
+ */
 async function init() {
     await downloadFromServer();
     users = (await JSON.parse(backend.getItem("users"))) || [];
 }
 
+/**
+ * show login window
+ */
 function backToLogin() {
     window.location.href = "index.html";
 }
 
+/**
+ * load message 
+ */
 function loadMessage() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get("msg");
@@ -14,6 +23,10 @@ function loadMessage() {
         msgBox.innerHTML = msg;
     }
 }
+
+/**
+ * send email
+ */
 function sendEmail() {
     let email = document.getElementById("email").value;
     let searchExistingEmail = users.find((u) => u.email == email);
@@ -44,6 +57,9 @@ function showMessage(message) {
     }, 1500);
 }
 
+/**
+ * reset password
+ */
 function resetPassword() {
     const urlParams = new URLSearchParams(window.location.search);
     let email = urlParams.get("msg");
@@ -54,6 +70,9 @@ function resetPassword() {
     checkValue(email, pw1, pw2);
 }
 
+/**
+ * check value of password
+ */
 async function checkValue(email, pw1, pw2) {
     let searchExistingEmail = users.find((u) => u.email == email);
     if (!searchExistingEmail && !email) {
@@ -67,6 +86,9 @@ async function checkValue(email, pw1, pw2) {
     }
 }
 
+/**
+ * set new password for user
+ */
 async function setNewPasswordForUser(email, password) {
     let passwordChanged = false;
     for (i = 0; i < users.length; i++) {

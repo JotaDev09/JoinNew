@@ -66,6 +66,9 @@ const insertAboveTask = (zone, mouseY) => {
     return closestTask;
 };
 
+/**
+ * read position kanban
+ */
 function readPosition() {
     document.getElementById("kanban").innerHTML = "";
     document.getElementById("kanban").innerHTML = kanbanHeader();
@@ -77,6 +80,9 @@ function readPosition() {
     }
 }
 
+/**
+ * render tasks
+ */
 function renderTask(section, testTasks, i) {
     let todo = document.getElementById(`${section}`);
 
@@ -89,6 +95,9 @@ function renderTask(section, testTasks, i) {
     priority = "";
 }
 
+/**
+ * check input felders task
+ */
 function innerHTMLCheck(todo, testTasks) {
     todo.innerHTML += taskings(
         i,
@@ -101,6 +110,9 @@ function innerHTMLCheck(todo, testTasks) {
     );
 }
 
+/**
+ * select priority
+ */
 function userPrio(num) {
     switch (allTasks[num].prio) {
         case "urgent":
@@ -114,6 +126,9 @@ function userPrio(num) {
     }
 }
 
+/**
+ * choose color category
+ */
 function chooseColor(num) {
     let cat = allTasks[num].category;
     for (let i = 0; i < category.length; i++) {
@@ -124,11 +139,17 @@ function chooseColor(num) {
     }
 }
 
+/**
+ * erender subtasks
+ */
 function renderSubtasksLength(num) {
     const subs = allTasks[num].subtasks;
     subtasksLength = subs.length;
 }
 
+/**
+ * show subtasks
+ */
 function showSubtasks(num) {
     const singleTask = allTasks[num].subtasks;
 
@@ -140,7 +161,6 @@ function showSubtasks(num) {
 }
 
 /**
- * TODO: check if this function is still needed
  * @param {string} param
  */
 function showAddTaskForm() {
@@ -154,6 +174,9 @@ function showAddTaskForm() {
     }
 }
 
+/**
+ * pop-up responsive
+ */
 function bigPopUpResp(param) {
     document.getElementById("webpage").classList.add("posFixed");
     boardPosition = param;
@@ -168,6 +191,9 @@ function bigPopUpResp(param) {
     switchBackground(prioList[2]);
 }
 
+/**
+ * render users
+ */
 function renderUsers(num) {
     let member = document.getElementById(`taskUser${num}`);
     member.innerHTML = "";
@@ -187,6 +213,9 @@ function renderUsers(num) {
     }
 }
 
+/**
+ * render only two users
+ */
 function renderOnlyTwoUser(member, num) {
     let number = allTasks[num].assignes.length - 2;
     let name = `${number}+`;
@@ -194,6 +223,9 @@ function renderOnlyTwoUser(member, num) {
     member.innerHTML += taskUser(name, userColor);
 }
 
+/**
+ * render all users
+ */
 function renderAllUser(assigne, member) {
     for (let i = 0; i < users.length; i++) {
         let thisUser = users[i];
@@ -205,12 +237,18 @@ function renderAllUser(assigne, member) {
     }
 }
 
+/**
+ * show tasks from user
+ */
 function showThisTask(num) {
     document.getElementById("taskDetail").classList.remove("d-none");
     document.getElementById("taskDetails").classList.remove("d-none");
     renderCurTask(num);
 }
 
+/**
+ * render tasks
+ */
 function renderCurTask(num) {
     let curTask = allTasks[num];
     chooseColor(num);
@@ -223,12 +261,13 @@ function renderCurTask(num) {
         prioImg,
         num
     );
-    //document.getElementById("youngSubtasks").innerHTML = takeSubtasks();
-    //renderSubtasks(num);
     document.getElementById("youngAssigne").innerHTML = assignes();
     renderAssignes(num);
 }
 
+/**
+ * check priority
+ */
 function prioCheck(curTask) {
     if (curTask.prio == "urgent") {
         prioColor = "#FF3D01";
@@ -242,7 +281,9 @@ function prioCheck(curTask) {
     }
 }
 
-//nur so viele <p>-Tags werden generiert, wie im curTask['assignes']-Array enthalten sind
+/**
+* render contacts
+*/
 function renderAssignes(num) {
     let curTask = allTasks[num];
     const container = document.getElementById("popUpAssignes");
@@ -256,6 +297,9 @@ function renderAssignes(num) {
     }
 }
 
+/**
+ * render subtasks
+ */
 function renderSubtasks(num) {
     let curTask = allTasks[num];
     const container = document.getElementById("popUpSubtasks");
@@ -267,6 +311,9 @@ function renderSubtasks(num) {
     }
 }
 
+/**
+ * find color for user
+ */
 function findUserColor(name) {
     for (let i = 0; i < users.length; i++) {
         const userName = users[i].name;
@@ -277,17 +324,20 @@ function findUserColor(name) {
 }
 
 /**
- * TODO- if not
+ * close pop-up
  */
 function closePopUp() {
     document.getElementById("taskDetail").classList.add("d-none");
     document.getElementById("taskDetails").classList.add("d-none");
 }
 
+/**
+ * edit title in task
+ */
 function closeWindow() {
     document.getElementById("addTask_overlap").classList.add("d-none");
     document.getElementById("bigPopUp").classList.add("d-none");
-    document.getElementById("webpage").classList.remove("posFixed");
+    //document.getElementById("webpage").classList.remove("posFixed");
     clearPopUp();
 }
 
@@ -382,20 +432,4 @@ function addSubtaskHitEnter() {
                 addSubtask();
             }
         });
-}
-
-function hoverCancel() {
-    document.getElementById("cancel").addEventListener("mouseover", (e) => {
-        if ((e.target = true)) {
-            document.getElementById("cancelCross").style.filter = "invert(80%)";
-        }
-    });
-}
-
-function removeHoverCancel() {
-    document.getElementById("cancel").addEventListener("mouseover", (e) => {
-        if ((e.target = true)) {
-            document.getElementById("cancelCross").style.filter = "invert(0%)";
-        }
-    });
 }

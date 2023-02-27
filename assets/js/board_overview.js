@@ -26,6 +26,9 @@ let boardPosition;
     "#0038FF",
 ];*/
 
+/**
+ * save task info
+ */
 function saveTaskInfo() {
     let title = document.getElementById("popUpTitle").value;
     let description = document.getElementById("popUpDescription").value;
@@ -43,29 +46,44 @@ function saveTaskInfo() {
     };
 }
 
+/**
+ * save task in backend
+ */
 async function saveTasksInBackend() {
     await backend.setItem("allTasks", JSON.stringify(allTasks));
     await backend.setItem("category", JSON.stringify(category));
     await backend.setItem("choosenColor", JSON.stringify(choosenColor));
 }
 
+/**
+ * check date
+ */
 function dateChecker() {
     let today = new Date().toISOString().split("T")[0];
 
     document.getElementById("dueDate").setAttribute("min", today);
 }
 
+/**
+ * refresh board
+ */
 function refresh() {
     readPosition();
     dragandDrop();
 }
 
+/**
+ * load task in board
+ */
 async function loadTasks() {
     await loadTasksFromBackend();
     readPosition();
     dragandDrop();
 }
 
+/**
+ * update task
+ */
 async function updateTask(id) {
     const pos = document.getElementById(`${id}`).parentNode.id;
     allTasks[id].position = `${pos}`;
@@ -73,6 +91,9 @@ async function updateTask(id) {
     await loadTasksFromBackend();
 }
 
+/**
+ * load task from backend
+ */
 async function loadTasksFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem("allTasks")) || [];

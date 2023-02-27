@@ -60,6 +60,9 @@ function newCategoryPopUp() {
   colerCode();
 }
 
+/**
+ * show the category in drop down
+ */
 function showCategoryPopUp(i) {
   let color = catColor[choosenColor[i]];
   document.getElementById("popUpCategory").innerHTML = categoryParam(category[i], i, color);
@@ -68,6 +71,9 @@ function showCategoryPopUp(i) {
   miniMenuPopUp("popUpCategory");
 }
 
+/**
+ * add a new category
+ */
 function addCat() {
   let newCat = document.getElementById("categoryName").value;
   let i = category.length;
@@ -83,6 +89,9 @@ function addCat() {
   }
 }
 
+/**
+ * add a name in the category
+ */
 function addCatHitEnter() {
   document
       .getElementById("categoryName")
@@ -93,6 +102,9 @@ function addCatHitEnter() {
       });
 }
 
+/**
+ * delete a new category
+ */
 function deleteCat() {
   document.getElementById("popUpategoryName").value = "";
   document.getElementById("popUpCategory").textContent = "Select task Category";
@@ -113,6 +125,9 @@ function colerCode() {
   }
 }
 
+/**
+ * add a color in new category
+ */
 function colorAdd(num) {
   let newCat = document.getElementById("popUpCategoryName").value;
 
@@ -122,15 +137,17 @@ function colorAdd(num) {
 }
 
 /**
-* --------------------- Assigned to Section ----------------------------
-*/
-
+ * assigne a new pop-up
+ */
 function newAssignePopUp() {
   miniMenu('popUpAssigne');
   document.getElementById('popUpAssigne').classList.add('d-none');
   document.getElementById('new-popUpAssigne').classList.remove('d-none');
 }
 
+/**
+ * show the assigne pop-up
+ */
 function showAssignePopUp(num) {
   let checkbox = document.getElementById("checkbox" + num);
 
@@ -143,6 +160,9 @@ function showAssignePopUp(num) {
   }
 }
 
+/**
+ * check pop-up
+ */
 function checkAssignePopUp() {
   document.getElementById('avatar').innerHTML = "";
   for (let i = 0; i < users.length; i++) {
@@ -155,6 +175,9 @@ function checkAssignePopUp() {
   }
 }
 
+/**
+ * add contact to the tasks
+ */
 function addAssignetoTask(num) {
   let name = users[num].name;
   //let initials = users[num].name.substring(0, 2).toUpperCase();
@@ -166,6 +189,9 @@ function addAssignetoTask(num) {
   }
 }
 
+/**
+ * remove contact from tasks
+ */
 function removeAssigneFromTask(num) {
   let name = users[num].name;
   let index = assigne.indexOf(name);
@@ -175,6 +201,9 @@ function removeAssigneFromTask(num) {
   checkAssignePopUp();
 }
 
+/**
+ * add color to contact
+ */
 function addAvatar(num) {
   let name = users[num].name.substring(0, 2).toUpperCase();
   let color = users[num].color
@@ -182,6 +211,9 @@ function addAvatar(num) {
   document.getElementById('avatar').innerHTML += avatar(name, color);
 }
 
+/**
+ * remove task
+ */
 function removeTasksPopUp() {
   subtasks = [];
   assigne = [];

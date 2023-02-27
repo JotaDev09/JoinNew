@@ -76,6 +76,9 @@ function pushNewContact() {
     closeAddPopup();
 }
 
+/**
+ * contacts Json to array
+ */
 function contactsJsonToArray() {
     for (let i = 0; i < CONTACTSPARSED.length; i++) {
         let contactString = JSON.stringify(CONTACTSPARSED[i]);
@@ -96,6 +99,9 @@ function contactsJsonToArray() {
     }
 }
 
+/**
+ * contacts array to json
+ */
 function contactsArrayToJson() {
     let CONTACTSJSON = [];
     for (let i = 0; i < CONTACTS.length; i++) {
@@ -146,6 +152,9 @@ async function pushContacts() {
     await backend.setItem("contacts", JSON.stringify(ParsedJson));
 }
 
+/**
+ * single contact card
+ */
 function renderSingleContactCard(uuid) {
     let contactColor = "";
     let contactName = "";
@@ -178,8 +187,9 @@ function renderLeft(uuid) {
     
 }
 
-
-
+/**
+ * sget contact from server
+ */
 async function getContactsFromDb() {
     await downloadFromServer();
     CONTACTSPARSED = (await JSON.parse(backend.getItem("contacts"))) || [];
@@ -194,6 +204,9 @@ async function startupContacts() {
     }, 1000);
 }
 
+/**
+ * render contacts
+ */
 function render() {
     for (let i = 0; i < CONTACTS.length; i++) {
         const renderContactCard = CONTACTS[i][0];
@@ -203,6 +216,9 @@ function render() {
     contactOpen("c569a0e5-a992-4537-82a9-1e69fd562fe3");
 }
 
+/**
+ * open contacts
+ */
 function contactOpen(uuid) {
     try {
         const renderedContactsHtml = renderedHtmlContactRight(uuid);
@@ -211,6 +227,9 @@ function contactOpen(uuid) {
     } catch {}
 }
 
+/**
+ * render html contacts
+ */
 function renderedHtmlContactRight(uuid) {
     let contactColor = "";
     let contactName = "";

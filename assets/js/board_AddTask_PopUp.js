@@ -22,6 +22,9 @@ function newCategoryPopUp() {
     colerCode();
 }
 
+/**
+ * show category in pop-up
+ */
 function showCategoryPopUp(i) {
     let color = catColor[choosenColor[i]];
     document.getElementById("popUpCategory").innerHTML = categoryParam(
@@ -36,21 +39,9 @@ function showCategoryPopUp(i) {
     miniMenuPopUp("popUpCategory");
 }
 
-// function addCat() {
-//     let newCat = document.getElementById("popUpCategoryName").value;
-//     let i = category.length;
-
-//     if (newCat != "") {
-//         category.push(newCat);
-//         appendCategoryPopUp();
-//         miniMenuPopUp("popUpCategory");
-//         document.getElementById("popUpCategoryName").value = "";
-//         showCategoryPopUp(i);
-//     } else {
-//         miniMenuPopUp("popUpCategory");
-//     }
-// }
-
+/**
+ * add category
+ */
 function addCatHitEnter() {
     document
         .getElementById("popUpCategoryName")
@@ -61,6 +52,9 @@ function addCatHitEnter() {
         });
 }
 
+/**
+ * delete category
+ */
 function deleteCat() {
     document.getElementById("popUpCategoryName").value = "";
     document.getElementById("popUpCategory").textContent =
@@ -86,6 +80,9 @@ function colerCode() {
  * --------------------- Assigned to Section ----------------------------
  */
 
+/**
+ * assign contact to pop-up
+ */
 function appendAssignesPopUp(id) {
     let assigne = document.getElementById(id);
     assigne.innerHTML = "";
@@ -99,12 +96,18 @@ function appendAssignesPopUp(id) {
     assigne.innerHTML += inviteAssignePopUp();
 }
 
+/**
+ * new contact pop-up
+ */
 function newAssignePopUp() {
     miniMenuPopUp("popUpAssigne");
     document.getElementById("popUpAssigne").classList.add("d-none");
     document.getElementById("new-popUpAssigne").classList.remove("d-none");
 }
 
+/**
+ * show contact in pop-up
+ */
 function showAssignePopUp(num) {
     let checkbox = document.getElementById("checkbox" + num);
 
@@ -117,6 +120,9 @@ function showAssignePopUp(num) {
     }
 }
 
+/**
+ * check contacts
+ */
 function checkAssignePopUp() {
     document.getElementById("avatar").innerHTML = "";
     for (let i = 0; i < users.length; i++) {
@@ -129,6 +135,9 @@ function checkAssignePopUp() {
     }
 }
 
+/**
+ * add contacto to task
+ */
 function addAssignetoTask(num) {
     let name = users[num].name;
     //let initials = users[num].name.substring(0, 2).toUpperCase();
@@ -140,6 +149,9 @@ function addAssignetoTask(num) {
     }
 }
 
+/**
+ *  remove contact from task
+ */
 function removeAssigneFromTask(num) {
     let name = users[num].name;
     let index = assigne.indexOf(name);
@@ -149,6 +161,9 @@ function removeAssigneFromTask(num) {
     checkAssignePopUp();
 }
 
+/**
+ * add color to task
+ */
 function addAvatar(num) {
     let name = users[num].name.substring(0, 2).toUpperCase();
     let color = users[num].color;
@@ -156,6 +171,9 @@ function addAvatar(num) {
     document.getElementById("avatar").innerHTML += avatar(name, color);
 }
 
+/**
+ * erase pop-up
+ */
 function clearPopUp() {
     document.getElementById("popUpTitle").value = "";
     document.getElementById("popUpDescription").value = "";
@@ -170,6 +188,9 @@ function clearPopUp() {
     document.getElementById("avatar").innerHTML = "";
 }
 
+/**
+ * add task
+ */
 async function addingTaskPopUp() {
     checkInputpopUp();
     if (checkUp == true) {
@@ -184,6 +205,9 @@ async function addingTaskPopUp() {
     }
 }
 
+/**
+ * remove task from pop-up
+ */
 function removeTasksPopUp() {
     subtasks = [];
     assigne = [];
@@ -191,6 +215,9 @@ function removeTasksPopUp() {
     closeWindow();
 }
 
+/**
+ * check input im pop-up
+ */
 function checkInputpopUp() {
     let title = document.getElementById("popUpTitle").value;
     let description = document.getElementById("popUpDescription").value;

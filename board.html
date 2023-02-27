@@ -6,31 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
 
-    <link rel="stylesheet" href="/assets/css/summary.css" />
-    <link rel="stylesheet" href="/assets/css/summary-resp.css" />
-    <link rel="stylesheet" href="/assets/css/board_maj.css" />
-    <link rel="stylesheet" href="/assets/css/board_resp.css" />
-    <link rel="stylesheet" href="/assets/css/add_task.css" />
-    <link rel="icon" type="image/icon" href="./assets/img/join-logo.svg" />
+    <link rel="stylesheet" href="assets/css/summary.css" />
+    <link rel="stylesheet" href="assets/css/summary-resp.css" />
+    <link rel="stylesheet" href="assets/css/board_maj.css" />
+    <link rel="stylesheet" href="assets/css/board_resp.css" />
+    <link rel="stylesheet" href="assets/css/add_task.css" />
+    <link rel="icon" type="image/icon" href="assets/img/join-logo.svg" />
 
-    <script src="../../assets/js/add_task.js"></script>
-    <script src="../../assets/js/add_task_dropdown.js"></script>
-    <script src="../../assets/js/add_task_overview.js"></script>
-    <script src="../../assets/js/add_task_dynamic_html.js"></script>
-    <script src="../../assets/js/summary.js"></script>
-    <script src="../../assets/js/mini_backend.js"></script>
-    <script src="./assets/js/board.js" defer></script>
-    <script src="./assets/js/board_overview.js"></script>
-    <script src="./assets/js/board_editMode.js"></script>
-    <script src="/assets/js/board_AddTask_PopUp.js"></script>
-    <script src="./assets/js/board_dynamic.js"></script>
+    <script src="assets/js/add_task.js"></script>
+    <script src="assets/js/add_task_dropdown.js"></script>
+    <script src="assets/js/add_task_overview.js"></script>
+    <script src="assets/js/add_task_dynamic_html.js"></script>
+    <script src="assets/js/summary.js"></script>
+    <script src="assets/js/mini_backend.js"></script>
+    <script src="assets/js/board.js" defer></script>
+    <script src="assets/js/board_overview.js"></script>
+    <script src="assets/js/board_editMode.js"></script>
+    <script src="assets/js/board_AddTask_PopUp.js"></script>
+    <script src="assets/js/board_dynamic.js"></script>
 
-    <script src="./assets/js/summary.js"></script>
+    <script src="assets/js/summary.js"></script>
     <!-- <script src="./assets/js/add_task_popup.js"></script> -->
-    <script src="/assets/js/mini_backend.js"></script>
+    <script src="assets/js/mini_backend.js"></script>
 
     <script>
         setURL('https://juan-desantos.developerakademie.net/smallest_backend_ever');
@@ -144,7 +144,7 @@
                         <div class="findTask">
                             <input placeholder="Find Task" class="findTaskInput" id="searched_input"
                                 onkeyup="findTask()" />
-                            <img src="./assets/img/magnifier.svg" alt="" />
+                            <img src="assets/img/magnifier.svg" alt="" />
                         </div>
                         <button class="addTask_btn" onclick="showAddTaskForm('todo')">
                             add task +
@@ -163,7 +163,7 @@
                     <div class="column" id="inProgress">
                         <div class="column_header">
                             <h4 class="heading">In progress</h4>
-                            <img src="/assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
+                            <img src="assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
                         </div>
                     </div>
                     <div class="column" id="awaitFeedback">
@@ -171,13 +171,13 @@
                             <h4 class="heading heading_await">
                                 Awaiting feedback
                             </h4>
-                            <img src="/assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
+                            <img src="assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
                         </div>
                     </div>
                     <div class="column" id="done">
                         <div class="column_header">
                             <h4 class="heading">Done</h4>
-                            <img src="/assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
+                            <img src="assets/img/plus_black.svg" class="plus_icon" onclick="showAddTaskForm()">
                         </div>
                     </div>
                 </div>
@@ -207,14 +207,14 @@
                     <h4 class="size light title">Category</h4>
                     <div onclick="expandMenu(this.id)" id="category" class="size light cat-btn btn" type="button">
                         Select task Category
-                        <img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg" />
+                        <img class="popup-arrow" src="assets/img/dropdown-arrow.svg" />
                     </div>
                     <ul id="category-list" class="d-none list-height list size light category-list"></ul>
                     <div id="new-category" class="left-width d-none">
                         <input id="categoryName" class="title-input size light" type="text"
                             placeholder="New category name" required="" />
-                        <img onclick="deleteCat()" class="cross" src="../../assets/img/cross.svg" /><img id="addCat"
-                            onclick="addCat()" class="newCategory" src="../../assets/img/newCategory.svg" />
+                        <img onclick="deleteCat()" class="cross" src="assets/img/cross.svg" /><img id="addCat"
+                            onclick="addCat()" class="newCategory" src="assets/img/newCategory.svg" />
                         <div id="colorCode" class="colorCode"></div>
                     </div>
                 </div>
@@ -222,15 +222,15 @@
                     <h4 class="size light title">Assigned to</h4>
                     <button onclick="expandMenu(this.id)" id="assigne" class="size light category-btn btn">
                         Select contacts to assign
-                        <img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg" />
+                        <img class="popup-arrow" src="assets/img/dropdown-arrow.svg" />
                     </button>
                     <ul id="assigne-list" class="d-none list-height list size light category-list"></ul>
                     <div id="new-assigne" class="left-width d-none">
                         <input id="assigneName" class="title-input size light" type="text" placeholder="Contact email"
                             required="" />
-                        <img onclick="miniMenu('assigne')" class="cross" src="../../assets/img/cross.svg" /><img
+                        <img onclick="miniMenu('assigne')" class="cross" src="assets/img/cross.svg" /><img
                             id="addCat" onclick="miniMenu('assigne')" class="newCategory"
-                            src="../../assets/img/newCategory.svg" />
+                            src="assets/img/newCategory.svg" />
                     </div>
                     <div class="avatar" id="avatar"></div>
                 </div>
@@ -247,16 +247,16 @@
                         <div class="prio-btns">
                             <button onclick="switchBackground('urgent')" class="size light btn prio" id="urgent">
                                 Urgent
-                                <img src="../../assets/img/arrows-up.svg" class="" />
+                                <img src="assets/img/arrows-up.svg" class="" />
                             </button>
                             <button onclick="switchBackground('medium')" class="size light btn prio" id="medium">
                                 Medium
-                                <img src="../../assets/img/equal-sign.svg" class="" />
+                                <img src="assets/img/equal-sign.svg" class="" />
                             </button>
                             <button onclick="switchBackground('low')" class="size light btn prio prio-low prio-img"
                                 id="low">
                                 Low
-                                <img src="../../assets/img/arrows-down.svg" class="" />
+                                <img src="assets/img/arrows-down.svg" class="" />
                             </button>
                         </div>
                     </div>
@@ -267,15 +267,15 @@
                         onmouseover="hoverCancel()">
                         <button class="size transp" style="border: none" type="submit" onclick="removeTasks()">
                             Cancel
-                            <img id="cancelCross" class="padding-10" src="../../assets/img/close2.svg" />
+                            <a id="cancelCross" class="padding-10">X</a>
                         </button>
                     </div>
                     <button class="size regul window-btn ok-btn" type="submit" onclick="addingTask()">
-                        Add Task<img class="padding-10" src="../../assets/img/create.png" />
+                        Add Task<img class="padding-10" src="assets/img/create.png" />
                     </button>
                     <div id="userFeedback" class="size userFeedback d-none">
                         <p>Task added to board</p>
-                        <img src="../../assets/img/board.svg" />
+                        <img src="assets/img/board.svg" />
                     </div>
                 </div>
             </div>

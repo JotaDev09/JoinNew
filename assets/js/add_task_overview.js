@@ -19,16 +19,15 @@ let pos;
 let inviteUser;
 
 /**
- * Eventlistener for Title, Subtask and Category
+ * load tasks
  */
-//document.addEventListener("keyup", addCatHitEnter);
-//document.addEventListener("keyup", addSubtaskHitEnter);
-//document.addEventListener("keyup", addTitleHitEnter);
-
 async function loadTasks() {
     await loadTasksFromBackend();
 }
 
+/**
+ * load tasks from backend
+ */
 async function loadTasksFromBackend() { 
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem("allTasks")) || [];
@@ -57,23 +56,12 @@ async function loadTasksFromBackend() {
     ];
 }
 
+/**
+ * add a feedback
+ */
 function userFeedback() {
     document.getElementById('userFeedback').classList.remove('d-none');
     setTimeout(function () {
         document.getElementById('userFeedback').classList.add('d-none');
     }, 2500);
 }
-
-/**
- * TODO: delete if not needed
- */
-// let openBoard
-// 
-// function popUpAddTask() {
-//     document.getElementById('popupAddTask').classList.add('flex');  
-//     timeout = setTimeout(addTaskResp, 2000)
-// }
-// 
-// function addTaskResp() {
-//     window.location.href = 'board.html';
-// }

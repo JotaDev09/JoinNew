@@ -1,5 +1,7 @@
+//setURL('https://juan-desantos.developerakademie.net/smallest_backend_ever');
+
 /**
- * TODO: check why userFeedbach is not working
+ * add Tasks
  */
 
 async function addingTask() {
@@ -15,6 +17,9 @@ async function addingTask() {
     }
 }
 
+/**
+ * check Input
+ */
 function checkInput() {
     let title = document.getElementById("title").value;
     let description = document.getElementById("description").value;
@@ -31,7 +36,7 @@ function checkInput() {
 }
 
 /**
- * TODO: use for position the pos variable
+ * save info form tasks
  */
 function saveTaskInfo() {
     let title = document.getElementById("title").value;
@@ -50,12 +55,18 @@ function saveTaskInfo() {
     };
 }
 
+/**
+ * save tasks in backend
+ */
 async function saveTasksInBackend() {
     await backend.setItem("allTasks", JSON.stringify(allTasks));
     await backend.setItem("category", JSON.stringify(category));
     await backend.setItem("choosenColor", JSON.stringify(choosenColor));
 }
 
+/**
+ * load tasks from backend
+ */
 async function loadTasksFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem("allTasks")) || [];
@@ -69,10 +80,11 @@ async function loadTasksFromBackend() {
     users = JSON.parse(backend.getItem("contacts")) || [];
 }
 
+/**
+ *  remove tasks
+ */
 function removeTasks() {
-    subtasks = [];
-    assigne = [];
-    clear();
+    window.location.href = "board.html";
 }
 
 /**
@@ -93,10 +105,8 @@ function clear() {
 }
 
 /**
- * ----------------------- Section -------------------------------
- *
- *
- */
+ * add title in tasks
+ **/
 function addTitleHitEnter() {
     let title = document.getElementById("title");
 

@@ -96,6 +96,7 @@ function greetUserName() {
 }
 
 async function summaryUpdate() {
+    await downloadFromServer();
     await loadTasks();
     loadPositionFrimBoard();
     renderNumberInSummary();

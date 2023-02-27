@@ -18,6 +18,9 @@ function expandMenu(id) {
     }
 }
 
+/**
+ * close menu
+ */
 function closeMenu(param) {
     miniMenu(param);
 
@@ -38,7 +41,7 @@ function closeMenu(param) {
  */
 
 /**
- *
+ * append of category
  */
 function appendCategory(id) {
     let cat = document.getElementById(id);
@@ -76,6 +79,9 @@ function newCategory() {
     colerCode();
 }
 
+/**
+ * show category
+ */
 function showCategory(i) {
     let color = catColor[choosenColor[i]];
     document.getElementById("category").innerHTML = categoryParam(
@@ -90,6 +96,9 @@ function showCategory(i) {
     miniMenu("category");
 }
 
+/**
+ * add new category
+ */
 function addCat() {
     let newCat = document.getElementById("categoryName").value;
     let i = category.length;
@@ -118,6 +127,9 @@ function addCatHitEnter() {
         });
 }
 
+/**
+ * delete category
+ */
 function deleteCat() {
     document.getElementById("categoryName").value = "";
     document.getElementById("category").textContent = "Select task Category";
@@ -169,6 +181,9 @@ function removeFocusColor(num) {
  * --------------------- Assigned to Section ----------------------------
  */
 
+/**
+ * append contacts
+ */
 function appendAssignes(id) {
     let assigne = document.getElementById(id);
     assigne.innerHTML = "";
@@ -182,12 +197,18 @@ function appendAssignes(id) {
     assigne.innerHTML += inviteAssigne();
 }
 
+/**
+ * new contact
+ */
 function newAssigne() {
     miniMenu("assigne");
     document.getElementById("assigne").classList.add("d-none");
     document.getElementById("new-assigne").classList.remove("d-none");
 }
 
+/**
+ * show contact
+ */
 function showAssigne(num) {
     let checkbox = document.getElementById("checkbox" + num);
 
@@ -200,6 +221,9 @@ function showAssigne(num) {
     }
 }
 
+/**
+ * check contact
+ */
 function checkAssigne() {
     document.getElementById("avatar").innerHTML = "";
     for (let i = 0; i < users.length; i++) {
@@ -212,6 +236,9 @@ function checkAssigne() {
     }
 }
 
+/**
+ * add contact to task
+ */
 function addAssignetoTask(num) {
     let name = users[num].name;
     //let initials = users[num].name.substring(0, 2).toUpperCase();
@@ -223,6 +250,9 @@ function addAssignetoTask(num) {
     }
 }
 
+/**
+ * remove contact from task
+ */
 function removeAssigneFromTask(num) {
     let name = users[num].name;
     let index = assigne.indexOf(name);
@@ -232,6 +262,9 @@ function removeAssigneFromTask(num) {
     checkAssigne();
 }
 
+/**
+ * add color to task
+ */
 function addAvatar(num) {
     let name = users[num].name.substring(0, 2).toUpperCase();
     let color = users[num].color;
@@ -240,7 +273,7 @@ function addAvatar(num) {
 }
 
 /**
- * TODO: add invite function
+ * new contact
  */
 function newAssigne() {
     miniMenu("assigne");

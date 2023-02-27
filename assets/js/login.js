@@ -1,4 +1,5 @@
 let rememberMe = false;
+//setURL('https://juan-desantos.developerakademie.net/smallest_backend_ever');
 
 function activePwField() {
     // Get a reference to the password field and image
@@ -9,21 +10,27 @@ function activePwField() {
     passwordField.addEventListener("input", function () {
         // If the password field has a value, change the image
         if (passwordField.value) {
-            image.src = "../assets/img/hide.svg";
+            image.src = "./assets/img/hide.svg";
         }
         // If the password field is empty, change the image back to the default
         else {
-            image.src = "../assets/img/lock.svg";
+            image.src = "./assets/img/lock.svg";
         }
     });
 }
 
+/**
+ * init from server
+ */
 async function init() {
     await downloadFromServer();
     users = (await JSON.parse(backend.getItem("users"))) || [];
     activePwField();
 }
 
+/**
+ * animated Join logo
+ */
 function animatedLogo() {
     if (window.matchMedia("(max-width: 480px)").matches) {
         document.getElementById("logo").style =
@@ -35,12 +42,18 @@ function animatedLogo() {
     showLogin();
 }
 
+/**
+ * show login window
+ */
 function showLogin() {
     setTimeout(() => {
         document.getElementById("login-container").classList.remove("d-none");
     }, 900);
 }
 
+/**
+ * show sign up window
+ */
 function showSignup() {
     window.location.href = "signup.html";
 }
@@ -56,15 +69,18 @@ function toggleVisibility() {
     // If the current type is "password", change it to "text" to show the password
     if (currentType == "password") {
         passwordField.type = "text";
-        image.src = "../assets/img/eye.svg";
+        image.src = "./assets/img/eye.svg";
     }
     // If the current type is "text", change it back to "password" to hide the password again
     else {
         passwordField.type = "password";
-        image.src = "../assets/img/hide.svg";
+        image.src = "./assets/img/hide.svg";
     }
 }
 
+/**
+ * load message
+ */
 function loadMessage() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get("msg");
@@ -73,6 +89,9 @@ function loadMessage() {
     }
 }
 
+/**
+ * show log out
+ */
 function showLogOut() {
     let log_out = document.getElementById("log_out");
     if (log_out.classList.contains("d-none")) {
@@ -84,9 +103,11 @@ function showLogOut() {
             log_out.classList.add("d-none");
         }, 400);
     }
-    console.log("logout");
 }
 
+/**
+ * log in
+ */
 function logIn() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
@@ -123,6 +144,9 @@ function showMessage(message) {
     }, 1500);
 }
 
+/**
+ * loguin as guest
+ */
 function loginAsGuest() {
     document.getElementById("email").value = ""; // to prevent login to be executed
     document.getElementById("password").value = ""; // to prevent login to be executed
@@ -131,11 +155,16 @@ function loginAsGuest() {
 }
 
 
-
+/**
+ * reset password form
+ */
 function resetPasswordForm() {
     window.location.href = "resetPassword2.html";
 }
 
+/**
+ * remember user
+ */
 function rememberUser() {
     let checkbox = document.getElementById("remember");
     if (checkbox.checked == true) {
