@@ -482,10 +482,10 @@ body {
 }
 
 .window {
-    width: 520px;
-    height: 650px;
+    width: 623px;
+    height: 824px;
     background-color: white;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 160px;
     transform: translateX(-32%);
@@ -496,7 +496,7 @@ body {
     padding: 50px;
     gap: 30px;
     overflow-y: auto;
-    overflow: scroll;
+    overflow: auto;
     z-index: 5;
 }
 

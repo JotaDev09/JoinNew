@@ -28,7 +28,7 @@ async function loadTasks() {
 /**
  * load tasks from backend
  */
-async function loadTasksFromBackend() { 
+async function loadTasksFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem("allTasks")) || [];
     choosenColor = JSON.parse(backend.getItem("choosenColor")) || [1, 4, 2, 5];
@@ -38,7 +38,11 @@ async function loadTasksFromBackend() {
         "Marketing",
         "Coding",
     ];
-    users = JSON.parse(backend.getItem("contacts")) || [
+    users = JSON.parse(backend.getItem("contacts")) || getDummyContacts();
+}
+
+function getDummyContacts(params) {
+    return [
         {
             uuid: "8942e28a-4448-4c07-9ee9-0ae04e32557e",
             name: "Hans Peter",

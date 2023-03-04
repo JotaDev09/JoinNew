@@ -1,3 +1,5 @@
+let users = [];
+
 /**
  * attaches event listeners to elements with the class "task" (which are intended to be dragged)
  * and elements with the class "column" (which are intended to be the drop targets).

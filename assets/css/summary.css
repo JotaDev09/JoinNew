@@ -9,6 +9,7 @@ body {
     height: 100vh;
     position: relative;
     background: #F6F7F8;
+    overflow: scroll;
 }
 
 .posFixed {

@@ -1,42 +1,19 @@
-/**
- * edit taskk render
- */
-function editMode(num) {
-    boardPosition = allTasks[num].position;
-    closePopUp();
-    showEditTaskForm(num);
-    fillTitle(num);
-    fillDescription(num);
-    findColor(num);
-    checkAssignes(num);
-    fillDueDate(num);
-    checkPriority(num);
-    //fillSubtasks(num);
-}
 
-/**
- * show edit task
- */
-function showEditTaskForm(num) {
-    document.getElementById("addTask_overlap").classList.remove("d-none");
-    document.getElementById("bigPopUp").classList.remove("d-none");
-    document.getElementById("bigPopUp").querySelector("h1").innerHTML = "Edit Task";
-    document.getElementById("sendTask").innerHTML = "Edit Task";
-    document.getElementById("sendTask").setAttribute("onclick", `editTaskPopUp(${num})`);
-}
 
-/**
- * edit title in task
- */
-function fillTitle(num) {
-    document.getElementById("popUpTitle").value = allTasks[num].title;
-}
+
+
+
+
+
+
+
+
 
 /**
  * edit description in task
  */
 function fillDescription(num) {
-    document.getElementById("popUpDescription").value = allTasks[num].description;
+    document.getElementById("descriptionPopUp").value = allTasks[num].description;
 }
 
 /**
@@ -55,9 +32,9 @@ function findColor(num) {
  * edit category in task
  */
 function fillCategory(name, num, color) {
-    document.getElementById("popUpCategory").innerHTML = categoryParamPopUp(name, num, color);
-    document.getElementById("popUpCategory").querySelector(".list-elements-height").classList.remove("list-elemnt");
-    document.getElementById("popUpCategory").innerHTML += addImg();
+    document.getElementById("popUp-Category").innerHTML = categoryParamPopUp(name, num, color);
+    document.getElementById("popUp-Category").querySelector(".list-elements-height").classList.remove("list-elemnt");
+    document.getElementById("popUp-Category").innerHTML += addImg();
 }
 
 /**
@@ -73,7 +50,7 @@ function checkAssignes(num) {
  * edit date in task
  */
 function fillDueDate(num) {
-    document.getElementById("dueDate").value = allTasks[num].dueDate;
+    document.getElementById("popUp-date").value = allTasks[num].dueDate;
 }
 
 /**
@@ -85,7 +62,7 @@ function checkPriority(num) {
 
 function fillSubtasks(num) {
     let subtask = document.getElementById("subtasks");
-    
+
     let array = allTasks[num].subtasks;
     for (let i = 0; i < array.length; i++) {
         const element = array[i];

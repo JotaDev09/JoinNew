@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/css/editTaskop.css">
+
+    <script src="assets/js/edit_task_popup.js"></script>
+</head>
+
+<body>
+    <div class="edit_popup" id="editTaskPopUp">
+
+        <div class="close_edit_popup">
+            <div class="close_pop_up" onclick="">
+                <img class="close_img" src="assets/img/close2.svg">
+            </div>
+        </div>
+        <div class="main_edit_popup">
+            <div class="title_edit_popup center_flex_start">
+                <a class="title_popup">Title</a>
+                <input class="input1_popup">
+            </div>
+            <div class="description_edit_popup center_flex_start">
+                <a class="description_popup">Description</a>
+                <textarea class="textarea_popup"></textarea>
+            </div>
+            <div class="date_edit_popup center_flex_start">
+                <a class="date_popup">Due date</a>
+                <input class="input2_popup" type="data" placeholder="dd/mm/yyyy">
+                <div class="img_input2_popup">
+                    <img class="calendar_popup" src="assets/img/calendar.svg">
+                </div>
+                </input>
+            </div>
+            <div class="prio_edit_popup center_flex_start">
+                <a class="prio_popup">Prio</a>
+                <div class="prio_btns_cont center_flex_start">
+                    <button onclick="switchBackground('urgent')" class="prio_red_popup prio_bottons_popup" id="urgent">
+                        <a>Urgent</a>
+                        <img src="assets/img/arrows-up.svg" class="" />
+                    </button>
+                    <button onclick="switchBackground('medium')" class="prio_yellow_popup prio_bottons_popup"
+                        id="medium">
+                        <a>Medium</a>
+                        <img src="assets/img/equal-sign.svg" class="" />
+                    </button>
+                    <button onclick="switchBackground('low')" class="prio_green_popup prio_bottons_popup" id="low">
+                        <a>Low</a>
+                        <img src="assets/img/arrows-down.svg" class="" />
+                    </button>
+                </div>
+            </div>
+            <div class="assigned_edit_popup center_flex_start">
+                <a class="assigned_pop">Assigned to</a>
+                <button class="selec_contact_popup" onclick="expandContacts()" id="button1-drop_popup">
+                    <a class="text_select_popup">Select contacts to assign</a>
+                    <img class="select_arrow_popup" src="assets/img/dropdown-arrow.svg">
+                </button>
+
+                <button class=" d-none drop_contact_popup " onclick="closeContacts()" id="button2-drop_popup">
+                    <div class="drop_title_popup">
+                        <a class="text_select_popup">Select contacts to assign</a>
+                        <img class="select_arrow_popup" src="assets/img/dropdown-arrow.svg">
+                    </div>
+                    <div class="contacts_drop_popup">
+                        <a class="contact_list_drop_popup">Juan</a>
+                        <input class="checkbox_drop_popup" type="checkbox">
+                    </div>
+                    <div class="invite_new_popup" type="button">
+                        <a class="invite_contact_popup">Invite new Contact</a>
+                        <img class="img_contacts_popup" src="assets/img/contacts.svg">
+                    </div>
+
+                </button>
+
+                <div class="avatars_edit_popup" id="avatar-drop_popup">
+                    <div class="color_avatar_popup"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ok_button_popup">
+            <button class="ok_btn_popup">
+                <a class="ok_text_popup">Ok</a>
+                <img src="assets/img/create.png"></img>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,9 +1,6 @@
-//setURL('https://juan-desantos.developerakademie.net/smallest_backend_ever');
-
 /**
  * add Tasks
  */
-
 async function addingTask() {
     checkInput();
     if (checkUp == true) {
@@ -25,7 +22,7 @@ function checkInput() {
     let description = document.getElementById("description").value;
     let date = document.getElementById("dueDate").value;
 
-    if ((title == "", description == "", priority == "", date == "")) {
+    if ((title == "" && description == "" && priority == "" && date == "")) {
         alert(
             "Please enter a Title, Description, Date, Prio and invite a User"
         );
