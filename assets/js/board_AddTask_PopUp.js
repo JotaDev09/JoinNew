@@ -6,7 +6,7 @@
  * minimize categorylist
  * @param {string} param
  */
-function miniMenuPopUp(param) {
+function miniMenu(param) {
     document.getElementById(`${param}`).classList.remove("d-none");
     document.getElementById(`${param}` + "-list").classList.add("d-none");
     document.getElementById(`new-${param}`).classList.add("d-none");
@@ -16,9 +16,9 @@ function miniMenuPopUp(param) {
  * minimize dropdown and shows the addCategory input
  */
 function newCategoryPopUp() {
-    miniMenuPopUp("popUpCategory");
-    document.getElementById("popUpCategory").classList.add("d-none");
-    document.getElementById("new-popUpCategory").classList.remove("d-none");
+    miniMenu("category");
+    document.getElementById("category").classList.add("d-none");
+    document.getElementById("new-category").classList.remove("d-none");
     colerCode();
 }
 
@@ -27,16 +27,16 @@ function newCategoryPopUp() {
  */
 function showCategoryPopUp(i) {
     let color = catColor[choosenColor[i]];
-    document.getElementById("popUpCategory").innerHTML = categoryParam(
+    document.getElementById("category").innerHTML = categoryParam(
         category[i],
         i,
         color
     );
-    document.getElementById("popUpCategory").innerHTML += addImg();
+    document.getElementById("category").innerHTML += addImg();
     document
-        .getElementById("popUpCategory")
+        .getElementById("category")
         .firstChild.classList.remove("list-elemnt");
-    miniMenuPopUp("popUpCategory");
+    miniMenu("category");
 }
 
 /**
@@ -44,7 +44,7 @@ function showCategoryPopUp(i) {
  */
 function addCatHitEnter() {
     document
-        .getElementById("popUpCategoryName")
+        .getElementById("categoryName")
         .addEventListener("keyup", (event) => {
             if (event.key == "Enter") {
                 addCat();
@@ -56,11 +56,11 @@ function addCatHitEnter() {
  * delete category
  */
 function deleteCat() {
-    document.getElementById("popUpCategoryName").value = "";
-    document.getElementById("popUpCategory").textContent =
+    document.getElementById("categoryName").value = "";
+    document.getElementById("category").textContent =
         "Select task Category";
-    document.getElementById("popUpCategory").innerHTML += addImg();
-    miniMenuPopUp("popUpCategory");
+    document.getElementById("category").innerHTML += addImg();
+    miniMenu("category");
 }
 
 /**
@@ -100,9 +100,9 @@ function appendAssignesPopUp(id) {
  * new contact pop-up
  */
 function newAssignePopUp() {
-    miniMenuPopUp("popUpAssigne");
-    document.getElementById("popUpAssigne").classList.add("d-none");
-    document.getElementById("new-popUpAssigne").classList.remove("d-none");
+    miniMenu("assigne");
+    document.getElementById("assigne").classList.add("d-none");
+    document.getElementById("new-assigne").classList.remove("d-none");
 }
 
 /**
@@ -177,10 +177,10 @@ function addAvatar(num) {
 function clearPopUp() {
     document.getElementById("popUpTitle").value = "";
     document.getElementById("popUpDescription").value = "";
-    document.getElementById("popUpCategory").innerText = "Select task Category";
-    document.getElementById("popUpCategory").innerHTML += addImg();
-    miniMenuPopUp("popUpAssigne");
-    miniMenuPopUp("popUpCategory");
+    document.getElementById("category").innerText = "Select task Category";
+    document.getElementById("category").innerHTML += addImg();
+    miniMenu("assigne");
+    miniMenu("category");
     backgroundOff(priority);
     document.getElementById("dueDate").value = "";
     //document.getElementById("subtaskName").value = "";
@@ -223,7 +223,7 @@ function checkInputpopUp() {
     let description = document.getElementById("popUpDescription").value;
     let date = document.getElementById("dueDate").value;
 
-    if ((title == "" || description == "" || priority == "" || date == "")) {
+    if ((title == "" & description == "" & priority == "" & date == "")) {
         alert(
             "Please enter a Title, Description, Date, Prio and invite a User"
         );

@@ -1,3 +1,5 @@
+
+
 /**
  * add Tasks
  */
@@ -11,6 +13,23 @@ async function addingTask() {
         assigne = [];
         clear();
         userFeedback();
+    }
+
+}
+
+/**
+ * add Tasks responsive
+ */
+async function createTask2() {
+    checkInput();
+    if (checkUp == true) {
+        saveTaskInfo();
+        allTasks.push(task);
+        saveTasksInBackend();
+        subtasks = [];
+        assigne = [];
+        clear();
+        userFeedbackResp();
     }
 }
 
@@ -95,8 +114,6 @@ function clear() {
     miniMenu("assigne");
     miniMenu("category");
     document.getElementById("dueDate").value = "";
-    //document.getElementById("subtaskName").value = "";
-    //document.getElementById("subtasks").innerHTML = "";
     document.getElementById("avatar").innerHTML = "";
     switchBackground(prioList[2]);
 }

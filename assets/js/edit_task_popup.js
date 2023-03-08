@@ -48,7 +48,7 @@ async function editMode(num) {
  */
 function showEditTaskForm(num) {
      document.getElementById("editTaskPopUp").classList.remove("d-none");
-     document.getElementById("taskDetail").classList.add("d-none");
+    // document.getElementById("taskDetail").classList.add("d-none");
      document.getElementById("taskDetails").classList.add("d-none");
      // document.getElementById("sendTask").setAttribute("onclick", `editTaskPopUp(${num})`);
  
@@ -130,8 +130,8 @@ function showEditTaskForm(num) {
                      <a class="text_select_popup">Select contacts to assign</a>
                      <img class="select_arrow_popup" src="assets/img/dropdown-arrow.svg">
                  </div>
-                 <div class="contacts_drop_popup">
-                     <a class="contact_list_drop_popup">Juan</a>
+                 <div class="contacts_drop_popup" id="contacts_edit_popup">
+                     <a class="contact_list_drop_popup"></a>
                      <input class="checkbox_drop_popup" type="checkbox">
                  </div>
                  <div class="invite_new_popup" type="button">

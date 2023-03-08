@@ -284,10 +284,4 @@
         align-items:flex-start;
     }
 
-    .window {
-        width: 78%;
-        height: auto;
-        top: 80px;
-    }
-
 }

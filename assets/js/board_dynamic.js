@@ -29,8 +29,9 @@ function inviteAssignePopUp() {
 /**
  * edit add task
  */
-function editTemplate(task, color, prioColor, prioImg, num) {
+function editTemplate(task, color, prioColor, prioImg, prio, num) {
     return /*html*/ `
+    <div class="viewTask">
         <div class="closeIcon" onclick="closePopUp()">
             <img src="assets/img/close.svg" alt="" class="x-pop" style="height: 36px" />
             <img src="assets/img/arrow-left-dark.svg" class="arrow-pop " alt="" style="height: 36px" />
@@ -41,15 +42,15 @@ function editTemplate(task, color, prioColor, prioImg, num) {
             id="popUp-category"
         >${task.category}</div>
         <h4 class="popUpHeadline" id="popUp-title">${task.title}</h4>
-        <span class="text" id="popUp-description"
+        <span class="text1" id="popUp-description"
             >${task.description}
         </span>
         <div class="popUpDueDate">
-            <p class="text bold">Due Date:</p>
-            <p class="text paddingL75" id="popUp-date">${task.dueDate}</p>
+            <p class="textDate bold">Due Date:</p>
+            <p class="dateView" id="popUp-date">${task.dueDate}</p>
         </div>
         <div class="popUpPriority">
-            <p class="text bold">Priority:</p>
+            <p class="textPrio bold">Priority:</p>
             <button class="size light btn prio-popUp" style="background-color: ${prioColor} !important" id="popUp-prio">${task.prio}
                 <img src="${prioImg}" class="prioImg" />
             </button>
@@ -65,9 +66,15 @@ function editTemplate(task, color, prioColor, prioImg, num) {
             style="background-color: orange"
             id="edit-category"
         ></div>
-        <div class="editIcon" id="edit-btn">
-            <img src="assets/img/pencil.svg" alt="" onclick="editMode(${num})"/>
-        </div>`;
+        <div class="buttons_end">
+            <div class="delete_task" onclick="deleteTask()">
+                <button class="deletebutton editIcon">Delete</button>
+            </div>
+            <div class="editIcon" id="edit-btn">
+                <img src="assets/img/pencil.svg" alt="" onclick="editMode(${num})"/>
+            </div>
+        </div>
+</div>`;
 }
 
 /**
@@ -77,7 +84,6 @@ function assignes() {
     return /*html*/ `<p class="text bold">Assigned to:</p>
     <div id = "popUpAssignes"
         class="assignes"
-        style="overflow-y: auto; height: 270px, width: 350px;"
     ></div>`;
 }
 
@@ -148,7 +154,7 @@ function taskings(num, title, description, category, length, color, prio) {
 }
 
 /**
- * suser in task
+ * user in task
  */
 function taskUser(initials, color) {
     return /*html*/ `<div class="contact--left__UserAvatar margin-10r" style="background-color: #${color} !Important">
@@ -160,7 +166,7 @@ function taskUser(initials, color) {
  * user name in tasks
  */
 function taskUserwithName(initials, color, name) {
-    return /*html*/ `<div style="display: flex;align-items: center;"><div class="contact--left__UserAvatar2 margin-10r" style="background-color: #${color} !Important">
+    return /*html*/ `<div class="userPopView"><div class="contact--left__UserAvatar2 margin-10r" style="background-color: #${color} !Important">
   <span class="contact-initials">${initials}</span>
 </div><p id="assign0" class="text">${name}</p></div>`;
 }

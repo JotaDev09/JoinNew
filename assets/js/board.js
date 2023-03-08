@@ -85,13 +85,12 @@ function readPosition() {
 /**
  * render tasks
  */
-function renderTask(section, testTasks, i) {
-    let todo = document.getElementById(`${section}`);
-
+function renderTask(section, task, i) {
+    
     //renderSubtasksLength(i);
     chooseColor(i);
     userPrio(i);
-    innerHTMLCheck(todo, testTasks);
+    innerHTMLCheck(todo, task);
     //showSubtasks(i); //Shows Subtask if subtask are in the array
     renderUsers(i); //Shows user they invited for this task
     priority = "";
@@ -100,12 +99,12 @@ function renderTask(section, testTasks, i) {
 /**
  * check input felders task
  */
-function innerHTMLCheck(todo, testTasks) {
+function innerHTMLCheck(todo, task) {
     todo.innerHTML += taskings(
         i,
-        testTasks.title,
-        testTasks.description,
-        testTasks.category,
+        task.title,
+        task.description,
+        task.category,
         subtasksLength,
         choosenCatColor,
         (prio = priority)
@@ -184,13 +183,13 @@ function bigPopUpResp(param) {
     boardPosition = param;
     document.getElementById("addTask_overlap").classList.remove("d-none");
     document.getElementById("bigPopUp").classList.remove("d-none");
-    document.getElementById("bigPopUp").querySelector("h1").innerHTML =
-        "Add Task";
-    document.getElementById("sendTask").innerHTML = "Add Task";
-    document
-        .getElementById("sendTask")
-        .setAttribute("onclick", 'addingTaskPopUp("todo")');
-    switchBackground(prioList[2]);
+   // document.getElementById("bigPopUp").querySelector("h1").innerHTML =
+    //    "Add Task";
+   // document.getElementById("sendTask").innerHTML = "Add Task";
+   // document
+    //    .getElementById("sendTask")
+     //   .setAttribute("onclick", 'addingTaskPopUp("todo")');
+    //switchBackground(prioList[2]);
 }
 
 /**
@@ -243,7 +242,7 @@ function renderAllUser(assigne, member) {
  * show tasks from user
  */
 function showThisTask(num) {
-    document.getElementById("taskDetail").classList.remove("d-none");
+   // document.getElementById("taskDetail").classList.remove("d-none");
     document.getElementById("taskDetails").classList.remove("d-none");
     renderCurTask(num);
 }
@@ -329,7 +328,7 @@ function findUserColor(name) {
  * close pop-up
  */
 function closePopUp() {
-    document.getElementById("taskDetail").classList.add("d-none");
+   // document.getElementById("taskDetail").classList.add("d-none");
     document.getElementById("taskDetails").classList.add("d-none");
 }
 
@@ -435,3 +434,4 @@ function addSubtaskHitEnter() {
             }
         });
 }
+

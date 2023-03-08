@@ -1,5 +1,5 @@
 let allTasks = [];
-let task = [];
+//let task = [];
 let subtasks = [];
 let category = ["Sales", "Backoffice", "Marketing", "Coding"];
 let assigne = [];
@@ -67,5 +67,14 @@ function userFeedback() {
     document.getElementById('userFeedback').classList.remove('d-none');
     setTimeout(function () {
         document.getElementById('userFeedback').classList.add('d-none');
+    }, 2500);
+}
+/**
+ * add a feedback responsive
+ */
+function userFeedbackResp() {
+    document.getElementById('userFeedbackResp').classList.remove('d-none');
+    setTimeout(function () {
+        document.getElementById('userFeedbackResp').classList.add('d-none');
     }, 2500);
 }

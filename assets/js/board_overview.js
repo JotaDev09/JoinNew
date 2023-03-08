@@ -2,7 +2,7 @@ const barNames = ["To do", "in progress", "Awaiting feedback", "Done"];
 const barIDs = ["todo", "inProgress", "awaitFeedback", "done"];
 let taskPosition = [];
 //let assigne = [];
-//let task = [];
+let task = [];
 //let subtasks = [];
 //const prioList = ["urgent", "medium", "low"];
 let subtasksLength = "";
@@ -32,7 +32,7 @@ let boardPosition;
 function saveTaskInfo() {
     let title = document.getElementById("popUpTitle").value;
     let description = document.getElementById("popUpDescription").value;
-    let category = document.getElementById("popUpCategory").innerText;
+    let category = document.getElementById("category").innerText;
     let dueDate = document.getElementById("dueDate").value;
     task = {
         title: title,
@@ -108,3 +108,8 @@ async function loadTasksFromBackend() {
 }
 
 function checkInput() {}
+
+
+function deleteTask(id) {
+    document.getElementById()
+}
