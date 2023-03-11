@@ -2,14 +2,14 @@
  * select category in pop-up
  */
 function selectCatPopUp() {
-    return /*html*/ `<div class="list-elemnts-height"><li id="selectCat" onclick="closeMenuPopUp('popUpCategory')" class="list-elements-height list-elemnt space">Select task Category<img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg"></img></li></div>`;
+    return /*html*/ `<div class="list-elemnts-height"><li id="selectCat" onclick="closeMenuPopUp('popUpCategory')" class="list-elements-height list-elemnt space">Select task Category<img class="popup-arrow" src="assets/img/dropdown-arrow.svg"></img></li></div>`;
 }
 
 /**
  * select contact in pop-up
  */
 function selectAssignePopUp() {
-    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="closeMenuPopUp('popUpAssigne')" class="list-elements-height list-elemnt space">Select contacts to assign<img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg"></img></li></div>`;
+    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="closeMenuPopUp('popUpAssigne')" class="list-elements-height list-elemnt space">Select contacts to assign<img class="popup-arrow" src="assets/img/dropdown-arrow.svg"></img></li></div>`;
 }
 
 /**
@@ -23,7 +23,7 @@ function assigneParamPopUp(name, i) {
  * invite contact in pop-up
  */
 function inviteAssignePopUp() {
-    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="newAssigne()" class="list-elements-height list-elemnt space">Invite new contact<img class="size" src="../../assets/img/contacts2.svg"></img></li></div>`;
+    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="newAssigne()" class="list-elements-height list-elemnt space">Invite new contact<img class="size" src="assets/img/contacts2.svg"></img></li></div>`;
 }
 
 /**
@@ -189,7 +189,7 @@ function categoryParamPopUp(elemnt, i, color) {
  * add arrow to drop-down
  */
 function addImg() {
-    return /*HTML*/ '<img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg"></img>';
+    return /*HTML*/ '<img class="popup-arrow" src="assets/img/dropdown-arrow.svg"></img>';
 }
 
 /**

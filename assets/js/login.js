@@ -9,11 +9,11 @@ function activePwField() {
     passwordField.addEventListener("input", function () {
         // If the password field has a value, change the image
         if (passwordField.value) {
-            image.src = "./assets/img/hide.svg";
+            image.src = "assets/img/hide.svg";
         }
         // If the password field is empty, change the image back to the default
         else {
-            image.src = "./assets/img/lock.svg";
+            image.src = "assets/img/lock.svg";
         }
     });
 }
@@ -68,12 +68,12 @@ function toggleVisibility() {
     // If the current type is "password", change it to "text" to show the password
     if (currentType == "password") {
         passwordField.type = "text";
-        image.src = "./assets/img/eye.svg";
+        image.src = "assets/img/eye.svg";
     }
     // If the current type is "text", change it back to "password" to hide the password again
     else {
         passwordField.type = "password";
-        image.src = "./assets/img/hide.svg";
+        image.src = "assets/img/hide.svg";
     }
 }
 

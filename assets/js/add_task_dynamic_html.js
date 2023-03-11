@@ -16,21 +16,21 @@ function assigneParam(name, i) {
  * select contact
  */
 function selectAssigne() {
-    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="closeMenu('assigne')" class="list-elements-height list-elemnt space">Select contacts to assign<img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg"></img></li></div>`;
+    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="closeMenu('assigne')" class="list-elements-height list-elemnt space">Select contacts to assign<img class="popup-arrow" src="assets/img/dropdown-arrow.svg"></img></li></div>`;
 }
 
 /**
  * invite contact
  */
 function inviteAssigne() {
-    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="newAssigne()" class="list-elements-height list-elemnt space">Invite new contact<img class="size" src="../../assets/img/contacts2.svg"></img></li></div>`;
+    return /*HTML*/ `<div class="list-elemnts-height"><li onclick="newAssigne()" class="list-elements-height list-elemnt space">Invite new contact<img class="size" src="assets/img/contacts2.svg"></img></li></div>`;
 }
 
 /**
  * cselect category
  */
 function selectCat() {
-    return /*html*/ `<div class="list-elemnts-height"><li id="selectCat" onclick="closeMenu('category')" class="list-elements-height list-elemnt space">Select task Category<img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg"></img></li></div>`;
+    return /*html*/ `<div class="list-elemnts-height"><li id="selectCat" onclick="closeMenu('category')" class="list-elements-height list-elemnt space">Select task Category<img class="popup-arrow" src="assets/img/dropdown-arrow.svg"></img></li></div>`;
 }
 
 /**
@@ -44,7 +44,7 @@ function addOneCat() {
  * add image
  */
 function addImg() {
-    return /*HTML*/ '<img class="popup-arrow" src="../../assets/img/dropdown-arrow.svg"></img>';
+    return /*HTML*/ '<img class="popup-arrow" src="assets/img/dropdown-arrow.svg"></img>';
 }
 
 /**
