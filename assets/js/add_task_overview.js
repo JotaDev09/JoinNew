@@ -1,5 +1,4 @@
 let allTasks = [];
-//let task = [];
 let subtasks = [];
 let category = ["Sales", "Backoffice", "Marketing", "Coding"];
 let assigne = [];

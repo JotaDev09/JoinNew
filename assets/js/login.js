@@ -1,5 +1,4 @@
 let rememberMe = false;
-//setURL('https://juan-desantos.developerakademie.net/smallest_backend_ever');
 
 function activePwField() {
     // Get a reference to the password field and image
@@ -108,7 +107,9 @@ function showLogOut() {
 /**
  * log in
  */
-function logIn() {
+async function logIn() {
+    await downloadFromServer();
+    users = (await JSON.parse(backend.getItem("users"))) || [];
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     let loggedUser = users.find(
@@ -117,6 +118,7 @@ function logIn() {
     let existingEmail = users.find((u) => u.email == email);
     if (loggedUser) {
         localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+        await backend.setItem("users", JSON.stringify(users))
         window.location.href = "summary.html";
     } else if (!existingEmail) {
         showMessage("Email not found");

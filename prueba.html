@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   let todasTareas = [];
+
+function sendText1() {
+    let text1 = document.getElementById('text1').value;
+
+    let tarea = {
+        'text1': text1,
+        'time': new Date().getTime()
+    }
+
+    todasTareas.push(tarea);
+
+    let todasTareasAsString = JSON.stringify(todasTareas);
+    localStorage.setItem('todasTareas', todasTareasAsString);
+    todo.innerHTML += tareaToString(text1);
+}
+
+function loadtareas() {
+    let todasTareasAsString = localStorage.getItem('todasTareas');
+    todasTareas = JSON.parse(todasTareasAsString);
+    if (!todasTareas) {
+        todasTareas = [];
+    }
+    console.log('Loaded all tareas', todasTareas)
+}
+
+function tareaToString(text1) {
+    return `<a style="width: 100px ; border: 1px solid black" id="text2">${text1}</a><br>`
+}
+
+
+function sendText2() {
+    let text2 = document.getElementById('text2')
+    let tarea2 = localStorage.getItem('tarea');
+    if (tarea2) {
+        tarea = JSON.parse(tarea2);
+    }
+    let todo2 = document.getElementById('todo2');
+
+    todo2.innerHTML ='';
+    todo2.innerHTML += tareaToString2();
+}
+
+function tareaToString2() {
+    return `<a style="width: 100px ; border: 1px solid black" id="text2">${text2}</a><br>`
+}
+
+
+
+</script>
+<body onload="loadtareas()">
+    <input style="height: 30px; width: 100px ; border: 1px solid black" id="text1">
+    <button onclick="sendText1()">
+        Send
+    </button><br>
+    <div id="todo"></div>
+    <button onclick="sendText2()"> Send 2</button><br>
+    <div style="height: 30px; width: 100px; border: 1px solid black; "id="todo2"></div>
+    
+</body>
+</html>

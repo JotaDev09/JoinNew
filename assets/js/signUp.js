@@ -10,7 +10,8 @@ let users = [
  * create a user
  */
 async function signUp() {
-
+    await downloadFromServer();
+    users = (await JSON.parse(backend.getItem("users"))) || [];
     let name = document.getElementById('name').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
@@ -20,8 +21,7 @@ async function signUp() {
         userAlreadyExists();
     } else {
         users.push({ 'name': name, 'email': email.toLowerCase(), 'password': password });
-        pushUsersToServer();
-
+        await pushUsersToServer();
         setTimeout(() => {
             showLoginAfterSignup();
         }, 500);
@@ -31,9 +31,10 @@ async function signUp() {
 /**
  * save the user to server
  */
-function pushUsersToServer() {
-    backend.setItem('users', JSON.stringify(users));
+async function pushUsersToServer() {
+    await backend.setItem('users', JSON.stringify(users));
 }
+    
 
 /**
  * show window login after sign up

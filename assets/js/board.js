@@ -86,13 +86,11 @@ function readPosition() {
  * render tasks
  */
 function renderTask(section, task, i) {
-    
-    //renderSubtasksLength(i);
+
     chooseColor(i);
     userPrio(i);
     innerHTMLCheck(todo, task);
-    //showSubtasks(i); //Shows Subtask if subtask are in the array
-    renderUsers(i); //Shows user they invited for this task
+    renderUsers(i); 
     priority = "";
 }
 
@@ -183,13 +181,6 @@ function bigPopUpResp(param) {
     boardPosition = param;
     document.getElementById("addTask_overlap").classList.remove("d-none");
     document.getElementById("bigPopUp").classList.remove("d-none");
-   // document.getElementById("bigPopUp").querySelector("h1").innerHTML =
-    //    "Add Task";
-   // document.getElementById("sendTask").innerHTML = "Add Task";
-   // document
-    //    .getElementById("sendTask")
-     //   .setAttribute("onclick", 'addingTaskPopUp("todo")');
-    //switchBackground(prioList[2]);
 }
 
 /**
@@ -242,7 +233,6 @@ function renderAllUser(assigne, member) {
  * show tasks from user
  */
 function showThisTask(num) {
-   // document.getElementById("taskDetail").classList.remove("d-none");
     document.getElementById("taskDetails").classList.remove("d-none");
     renderCurTask(num);
 }
@@ -262,6 +252,7 @@ function renderCurTask(num) {
         prioImg,
         num
     );
+    
     document.getElementById("youngAssigne").innerHTML = assignes();
     renderAssignes(num);
 }
@@ -288,7 +279,7 @@ function prioCheck(curTask) {
 function renderAssignes(num) {
     let curTask = allTasks[num];
     const container = document.getElementById("popUpAssignes");
-    container.innerHTML = ""; // Clear any existing paragraphs
+    container.innerHTML = "";
 
     for (let i = 0; i < curTask.assignes.length; i++) {
         const name = curTask.assignes[i];
@@ -304,7 +295,7 @@ function renderAssignes(num) {
 function renderSubtasks(num) {
     let curTask = allTasks[num];
     const container = document.getElementById("popUpSubtasks");
-    container.innerHTML = ""; // Clear any existing inserts
+    container.innerHTML = ""; 
 
     for (let i = 0; i < curTask.subtasks.length; i++) {
         const subtask = curTask.subtasks[i];
@@ -328,7 +319,6 @@ function findUserColor(name) {
  * close pop-up
  */
 function closePopUp() {
-   // document.getElementById("taskDetail").classList.add("d-none");
     document.getElementById("taskDetails").classList.add("d-none");
 }
 
@@ -338,7 +328,6 @@ function closePopUp() {
 function closeWindow() {
     document.getElementById("addTask_overlap").classList.add("d-none");
     document.getElementById("bigPopUp").classList.add("d-none");
-    //document.getElementById("webpage").classList.remove("posFixed");
     clearPopUp();
 }
 

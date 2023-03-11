@@ -1,5 +1,3 @@
-
-
 /**
  * add Tasks
  */
@@ -14,7 +12,6 @@ async function addingTask() {
         clear();
         userFeedback();
     }
-
 }
 
 /**
@@ -210,5 +207,3 @@ function dateChecker() {
 
     document.getElementById("dueDate").setAttribute("min", today);
 }
-
-

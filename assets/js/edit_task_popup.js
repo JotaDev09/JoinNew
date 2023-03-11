@@ -1,80 +1,107 @@
 function expandContacts() {
-     document.getElementById('button2-drop_popup').classList.add('d-flex')
-     document.getElementById('button1-drop_popup').classList.add('d-none')
-     document.getElementById('avatar-drop_popup').classList.add('d-none')
+    document.getElementById('button2-drop_popup').classList.add('d-flex')
+    document.getElementById('button1-drop_popup').classList.add('d-none')
+    document.getElementById('avatar-drop_popup').classList.add('d-none')
 }
 
 function closeContacts() {
-     document.getElementById('button2-drop_popup').classList.remove('d-flex')
-     document.getElementById('button1-drop_popup').classList.remove('d-none')
-     document.getElementById('avatar-drop_popup').classList.remove('d-none')
+    document.getElementById('button2-drop_popup').classList.remove('d-flex')
+    document.getElementById('button1-drop_popup').classList.remove('d-none')
+    document.getElementById('avatar-drop_popup').classList.remove('d-none')
 }
 
 /**
  * edit taskk render
  */
 async function editMode(num) {
-     await loadTasksFromBackend()
-     showEditTaskForm(num);
- 
-     /* boardPosition = allTasks[num].position;
-      closePopUp();
-      
-      fillTitle(num);
-      fillDescription(num);
-      findColor(num);
-      checkAssignes(num);
-      fillDueDate(num);
-      checkPriority(num);
-      //fillSubtasks(num);*/
- }
+    await loadTasksFromBackend();
+    renderinputFields(i);
+    showEditTaskForm(num);
 
- async function loadTasksFromBackend() {
-     await downloadFromServer();
-     allTasks = JSON.parse(backend.getItem("allTasks")) || [];
-     /*
-     choosenColor = JSON.parse(backend.getItem("choosenColor")) || [1, 4, 2, 5];
-     category = JSON.parse(backend.getItem("category")) || [
-         "Sales",
-         "Backoffice",
-         "Marketing",
-         "Coding",
-     ];
-     users = JSON.parse(backend.getItem("contacts")) || [];*/
- }
-
-/**
- * show edit task
- */
-function showEditTaskForm(num) {
-     document.getElementById("editTaskPopUp").classList.remove("d-none");
-    // document.getElementById("taskDetail").classList.add("d-none");
-     document.getElementById("taskDetails").classList.add("d-none");
-     // document.getElementById("sendTask").setAttribute("onclick", `editTaskPopUp(${num})`);
- 
-     let edit = document.getElementById('editTaskPopUp');
-     edit.innerHTML = editTaskPop(i);
-     /*fillTitle(num);
+    /* boardPosition = allTasks[num].position;
+     closePopUp();
+     
+     fillTitle(num);
      fillDescription(num);
      findColor(num);
      checkAssignes(num);
      fillDueDate(num);
      checkPriority(num);
-     
-     let titleEdit = document.getElementById('editTitle');
-     titleEdit.value = allTasks[i]['title']
-     let descriptionEdit = document.getElementById('descriptionPopUp');
-      descriptionEdit.value = allTasks[i]['description'];
-     */
- }
- 
- function closeEditPopUp(num) {
-     document.getElementById("editTaskPopUp").classList.add("d-none");
-     // document.getElementById("sendTask").setAttribute("onclick", `editTaskPopUp(${num})`);
- }
- 
- function editTaskPop(i) {
-     return `<div class="edit_popup">
+     //fillSubtasks(num);*/
+}
+
+
+async function loadTasksFromBackend() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem("allTasks")) || [];
+    /*
+    choosenColor = JSON.parse(backend.getItem("choosenColor")) || [1, 4, 2, 5];
+    category = JSON.parse(backend.getItem("category")) || [
+        "Sales",
+        "Backoffice",
+        "Marketing",
+        "Coding",
+    ];
+    users = JSON.parse(backend.getItem("contacts")) || [];*/
+}
+
+/**
+ * show edit task
+*/
+function renderinputFields(num) {
+   //let cardTitle = allTasks[num]['title']
+  // let editDescription =  allTasks[num]['description'];
+  // document.getElementById("descriptionPopUp").value = editDescription
+}
+
+function showEditTaskForm(num) {
+    document.getElementById("editTaskPopUp").classList.remove("d-none");
+    // document.getElementById("taskDetail").classList.add("d-none");
+    document.getElementById("taskDetails").classList.add("d-none");
+    // document.getElementById("sendTask").setAttribute("onclick", `editTaskPopUp(${num})`);
+
+    renderEditTask(num);
+    /*let edit = document.getElementById('editTaskPopUp');
+    edit.innerHTML = editTaskPop();
+    fillTitle(num);
+    fillDescription(num);
+    findColor(num);
+    checkAssignes(num);
+    fillDueDate(num);
+    checkPriority(num);
+    
+    let titleEdit = document.getElementById('editTitle');
+    titleEdit.value = allTasks[i]['title']
+    let descriptionEdit = document.getElementById('descriptionPopUp');
+     descriptionEdit.value = allTasks[i]['description'];
+    */
+}
+
+function renderEditTask(num, id) {
+    let curTaskEdit = allTasks[num];
+    let editTask = document.getElementById(`editTaskPopUp${num}`);
+    
+   // chooseColor(num);
+   // prioCheck(curTaskEdit);
+    //editTask.innerHTML = '';
+    editTask.innerHTML += editTaskPop(num);
+        //curTaskEdit,
+       // choosenCatColor,
+       // prioColor,
+       // prioImg,
+       // num
+    //);
+   // document.getElementById("youngAssigne").innerHTML = assignes();
+   // renderAssignes(num);
+}
+
+function closeEditPopUp(num) {
+    document.getElementById("editTaskPopUp").classList.add("d-none");
+    // document.getElementById("sendTask").setAttribute("onclick", `editTaskPopUp(${num})`);
+}
+
+function editTaskPop(task, num) {
+    return /*html*/ `<div class="edit_popup">
  
      <div class="close_edit_popup" onclick="closeEditPopUp()">
          <div class="close_pop_up" onclick="">
@@ -84,7 +111,7 @@ function showEditTaskForm(num) {
      <div class="main_edit_popup">
          <div class="title_edit_popup center_flex_start">
              <a class="title_popup" id="editTitlePopUp">Title</a>
-             <input class="input1_popup" id="editTitle">
+             <input class="input1_popup" id="editTitleCard">${allTasks[num]['title']}
          </div>
          <div class="description_edit_popup center_flex_start">
              <a class="description_popup">Description</a>
@@ -92,11 +119,7 @@ function showEditTaskForm(num) {
          </div>
          <div class="date_edit_popup center_flex_start">
              <a class="date_popup">Due date</a>
-             <input class="input2_popup" type="number" id="dueDatePoup" placeholder="dd/mm/yyyy">
-             <div class="img_input2_popup">
-                 <img class="calendar_popup" src="assets/img/calendar.svg">
-             </div>
-             </input>
+             <input class="input2_popup" type="date" id="dueDatePoup" placeholder="dd/mm/yyyy" onclick="dateCheckerEdit()">
          </div>
          <div class="prio_edit_popup center_flex_start">
              <a class="prio_popup">Prio</a>
@@ -153,16 +176,21 @@ function showEditTaskForm(num) {
          </button>
      
  </div>`
- }
- 
- /**
-  * edit title in task
-  */
- function fillTitle(num) {
-     
-     let titleEdit = document.getElementById('editTitle');
-     titleEdit.value = allTasks[i]['title']
-     console.log(titleEdit)
-    
- }
- 
+}
+
+/**
+ * edit title in task
+ */
+function fillTitle(num) {
+
+    let titleEdit = document.getElementById('editTitle');
+    titleEdit.value = allTasks[i]['title']
+    console.log(titleEdit)
+
+}
+
+function dateCheckerEdit() {
+    let today = new Date().toISOString().split("T")[0];
+
+    document.getElementById("dueDatePoup").setAttribute("min", today);
+}

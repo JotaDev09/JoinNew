@@ -1,10 +1,7 @@
 const barNames = ["To do", "in progress", "Awaiting feedback", "Done"];
 const barIDs = ["todo", "inProgress", "awaitFeedback", "done"];
 let taskPosition = [];
-//let assigne = [];
 let task = [];
-//let subtasks = [];
-//const prioList = ["urgent", "medium", "low"];
 let subtasksLength = "";
 const urgent = "./assets/img/arrows-up.svg";
 const medium = "./assets/img/equal-sign.svg";
@@ -15,16 +12,8 @@ const lowW = "./assets/img/arrows_down_w.svg";
 let choosenCatColor = "";
 let prioColor;
 let prioImg;
-//let checkUp = "";
 let boardPosition;
-/*const catColor = [
-    "#8AA4FF",
-    "#FF0000",
-    "#2AD300",
-    "#FF8A00",
-    "#E200BE",
-    "#0038FF",
-];*/
+
 
 /**
  * save task info
@@ -108,8 +97,3 @@ async function loadTasksFromBackend() {
 }
 
 function checkInput() {}
-
-
-function deleteTask(id) {
-    document.getElementById()
-}

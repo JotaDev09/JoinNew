@@ -67,9 +67,6 @@ function editTemplate(task, color, prioColor, prioImg, prio, num) {
             id="edit-category"
         ></div>
         <div class="buttons_end">
-            <div class="delete_task" onclick="deleteTask()">
-                <button class="deletebutton editIcon">Delete</button>
-            </div>
             <div class="editIcon" id="edit-btn">
                 <img src="assets/img/pencil.svg" alt="" onclick="editMode(${num})"/>
             </div>
@@ -138,12 +135,6 @@ function taskings(num, title, description, category, length, color, prio) {
   <div class="taskCategoryView" style="background-color: ${color}">${category}</div>
   <p class="taskTitle">${title}</p>
   <span class="taskDescription">${description}</span>
-  <!-- <div id="taskSubtasks${num}" class="taskSubtask d-none">
-    <div class="taskSubtask-progressbar">
-      <div class="progress-color" style="width: 0%;"></div>
-    </div>
-    <p>0/${length}</p> 
-  </div> -->
   <div class="userTab">
   <div id="taskUser${num}" class="taskUser">
     
